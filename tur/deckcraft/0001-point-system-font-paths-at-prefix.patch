@@ -1,0 +1,13 @@
+diff --git a/crates/fonts/src/fontdb.rs b/crates/fonts/src/fontdb.rs
+index e542c8d..9b63d06 100644
+--- a/crates/fonts/src/fontdb.rs
++++ b/crates/fonts/src/fontdb.rs
+@@ -630,7 +630,7 @@ pub fn system_font_dirs() -> Vec<std::path::PathBuf> {
+             dirs.push(l.join("Microsoft\\FontCache\\4\\CloudFonts"));
+         }
+     } else {
+-        dirs.extend(["/usr/share/fonts", "/usr/local/share/fonts"].map(Into::into));
++        dirs.extend(["@TERMUX_PREFIX@/share/fonts", "@TERMUX_PREFIX@/local/share/fonts"].map(Into::into));
+         if let Some(h) = &home {
+             dirs.push(h.join(".fonts"));
+             dirs.push(h.join(".local/share/fonts"));
